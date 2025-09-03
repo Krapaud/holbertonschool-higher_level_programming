@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-for i in range(99):
-    print("{}".format(chr(i)), end="")
+for nombre in range(99):
+    print("{} = {}".format(nombre, hex(nombre)))
