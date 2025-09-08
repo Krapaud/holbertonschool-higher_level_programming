@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 def max_integer(my_list=[]):
+    if my_list == "":
+        return None
     lenght = len(my_list)
     num = 0
     for i in range(lenght):
