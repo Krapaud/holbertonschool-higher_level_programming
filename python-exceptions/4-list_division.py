@@ -1,15 +1,18 @@
 #!/usr/bin/python3
 def list_division(my_list_1, my_list_2, list_length):
-    """
-    Divides element by element 2 lists.
-
-    Args:
-        my_list_1: first list that can contain any type
-        my_list_2: second list that can contain any type
-        list_length: length of the new list
-
-    Returns:
-        A new list (length = list_length) with all divisions
-    """
-    # Your implementation here
-    pass
+    result = [0] * list_length
+    for i in range(list_length):
+        try:
+            result[i] = my_list_1[i] / my_list_2[i]
+        except ZeroDivisionError:
+            print("division by 0")
+            result[i] = 0
+        except TypeError:
+            print("wrong type")
+            result[i] = 0
+        except IndexError:
+            print("out of range")
+            result[i] = 0
+        finally:
+            continue
+    return result
