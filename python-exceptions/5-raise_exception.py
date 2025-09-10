@@ -1,7 +1,3 @@
 #!/usr/bin/python3
 def raise_exception():
-    """
-    Raises a type exception.
-    """
-    # Your implementation here
-    pass
+    raise TypeError()
