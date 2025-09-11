@@ -31,3 +31,93 @@ Gestion des erreurs - matrice invalide:
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Matrice avec des floats:
+    >>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2)
+    [[0.75, 1.25], [1.75, 2.25]]
+
+Matrice avec des nombres négatifs:
+    >>> matrix_divided([[-1, -2], [-3, -4]], 2)
+    [[-0.5, -1.0], [-1.5, -2.0]]
+
+Division par un nombre négatif:
+    >>> matrix_divided([[1, 2], [3, 4]], -2)
+    [[-0.5, -1.0], [-1.5, -2.0]]
+
+Matrice 1x1:
+    >>> matrix_divided([[5]], 2)
+    [[2.5]]
+
+Matrice avec zéros:
+    >>> matrix_divided([[0, 0], [0, 0]], 3)
+    [[0.0, 0.0], [0.0, 0.0]]
+
+Test avec float pour div:
+    >>> matrix_divided([[1, 2], [3, 4]], 2.5)
+    [[0.4, 0.8], [1.2, 1.6]]
+
+Erreur - lignes de tailles différentes:
+    >>> matrix_divided([[1, 2, 3], [4, 5]], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+Erreur - matrice vide:
+    >>> matrix_divided([], 2)
+    Traceback (most recent call last):
+    ...
+    IndexError: list index out of range
+
+Erreur - ligne vide dans la matrice:
+    >>> matrix_divided([[]], 2)
+    [[]]
+
+Erreur - div n'est pas un nombre:
+    >>> matrix_divided([[1, 2], [3, 4]], "2")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Erreur - div est None:
+    >>> matrix_divided([[1, 2], [3, 4]], None)
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Erreur - matrice contient des strings:
+    >>> matrix_divided([["a", "b"], ["c", "d"]], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Erreur - matrice contient des listes imbriquées incorrectes:
+    >>> matrix_divided([[1, [2, 3]], [4, 5]], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Erreur - matrice n'est pas une liste:
+    >>> matrix_divided(42, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test avec de très petits nombres:
+    >>> matrix_divided([[0.001, 0.002], [0.003, 0.004]], 1000)
+    [[0.0, 0.0], [0.0, 0.0]]
+
+Test avec de grands nombres:
+    >>> matrix_divided([[1000000, 2000000], [3000000, 4000000]], 1000000)
+    [[1.0, 2.0], [3.0, 4.0]]
+
+Test précision arrondie à 2 décimales:
+    >>> matrix_divided([[1, 2], [3, 4]], 3)
+    [[0.33, 0.67], [1.0, 1.33]]
+
+Matrice 3x3:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+
+Division par 1 (doit retourner la même matrice arrondie):
+    >>> matrix_divided([[1.111, 2.222], [3.333, 4.444]], 1)
+    [[1.11, 2.22], [3.33, 4.44]]
