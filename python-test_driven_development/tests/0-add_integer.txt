@@ -20,6 +20,12 @@ Tests basiques:
     >>> add_integer(100.3, -2)
     98
 
+    >>> add_integer(-1, -1)
+    -2
+
+    >>> add_integer(0, 0)
+    0
+
 Gestion des erreurs:
     >>> add_integer(4, "School")
     Traceback (most recent call last):
