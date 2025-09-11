@@ -71,67 +71,139 @@ Ce projet fait partie du cursus Holberton School et se concentre sur la gestion 
 
 ```text
 python-exceptions/
-├── README.md                    # Ce fichier
-├── 0-safe_print_list.py        # Impression sécurisée d'une liste
-├── 1-safe_print_integer.py     # Impression sécurisée d'un entier
-├── 2-safe_print_list_integers.py # Impression des entiers d'une liste
-├── 3-safe_print_division.py    # Division sécurisée
-├── 4-list_division.py          # Division d'éléments de listes
-├── 5-raise_exception.py        # Lever une exception de type
-├── 6-raise_exception_msg.py    # Lever une exception avec message
-└── main_files/                 # Fichiers de test
-    ├── 0-main.py
-    ├── 1-main.py
-    └── ...
+├── README.md                          # Ce fichier
+├── 0-safe_print_list.py              # Impression sécurisée d'une liste
+├── 0-main.py                         # Test pour 0-safe_print_list.py
+├── 1-safe_print_integer.py           # Impression sécurisée d'un entier
+├── 1-main.py                         # Test pour 1-safe_print_integer.py
+├── 2-safe_print_list_integers.py     # Impression des entiers d'une liste
+├── 2-main.py                         # Test pour 2-safe_print_list_integers.py
+├── 3-safe_print_division.py          # Division sécurisée avec try/except/finally
+├── 3-main.py                         # Test pour 3-safe_print_division.py
+├── 4-list_division.py                # Division d'éléments de deux listes
+├── 4-main.py                         # Test pour 4-list_division.py
+├── 5-raise_exception.py              # Lever une exception TypeError
+├── 5-main.py                         # Test pour 5-raise_exception.py
+├── 6-raise_exception_msg.py          # Lever une exception avec message
+├── 6-main.py                         # Test pour 6-raise_exception_msg.py
+└── __pycache__/                      # Cache Python (généré automatiquement)
 ```
 
 ## 🔧 Fonctions principales
 
 ### Gestion sécurisée des opérations
 
-* **safe_print_list()** : Imprime n éléments d'une liste de manière sécurisée
-* **safe_print_integer()** : Imprime un entier avec gestion d'erreur
-* **safe_print_division()** : Effectue une division avec gestion des erreurs
+* **safe_print_list(my_list=[], x=0)** : Imprime x éléments d'une liste de manière sécurisée
+* **safe_print_integer(value)** : Imprime un entier avec gestion d'erreur, retourne True/False
+* **safe_print_list_integers(my_list=[], x=0)** : Imprime les x premiers entiers d'une liste
+* **safe_print_division(a, b)** : Effectue une division sécurisée avec try/except/finally
+* **list_division(my_list_1, my_list_2, list_length)** : Divise élément par élément deux listes
 
 ### Manipulation des exceptions
 
-* **raise_exception()** : Exemple de levée d'exception de type
-* **raise_exception_msg()** : Levée d'exception avec message personnalisé
+* **raise_exception()** : Lève une exception TypeError
+* **raise_exception_msg(message="")** : Lève une exception NameError avec message personnalisé
+
+## 📝 Détails des tâches
+
+### Task 0: Safe list printing
+
+* **Fichier**: `0-safe_print_list.py`
+* **Fonction**: `safe_print_list(my_list=[], x=0)`
+* **Objectif**: Imprimer x éléments d'une liste de manière sécurisée
+* **Gestion**: Capture les exceptions lors de l'accès aux éléments
+
+### Task 1: Safe printing of an integers list
+
+* **Fichier**: `1-safe_print_integer.py`
+* **Fonction**: `safe_print_integer(value)`
+* **Objectif**: Imprimer un entier avec le format "{:d}"
+* **Retour**: True si l'impression réussit, False sinon
+
+### Task 2: Print and count integers
+
+* **Fichier**: `2-safe_print_list_integers.py`
+* **Fonction**: `safe_print_list_integers(my_list=[], x=0)`
+* **Objectif**: Imprimer les x premiers entiers d'une liste
+* **Gestion**: Ignore les éléments non-entiers
+
+### Task 3: Integers division with debug
+
+* **Fichier**: `3-safe_print_division.py`
+* **Fonction**: `safe_print_division(a, b)`
+* **Objectif**: Division sécurisée avec affichage du résultat
+* **Structure**: try/except/finally pour gérer la division par zéro
+
+### Task 4: Divide a list
+
+* **Fichier**: `4-list_division.py`
+* **Fonction**: `list_division(my_list_1, my_list_2, list_length)`
+* **Objectif**: Diviser élément par élément deux listes
+* **Gestion**: Multiple exceptions (division par zéro, type, index)
+
+### Task 5: Raise exception
+
+* **Fichier**: `5-raise_exception.py`
+* **Fonction**: `raise_exception()`
+* **Objectif**: Lever une exception TypeError
+* **Utilisation**: Démonstration de la levée d'exception
+
+### Task 6: Raise a message
+
+* **Fichier**: `6-raise_exception_msg.py`
+* **Fonction**: `raise_exception_msg(message="")`
+* **Objectif**: Lever une exception NameError avec message
+* **Utilisation**: Exception personnalisée avec message
 
 ## 📖 Exemples d'utilisation
 
-### Gestion basique des exceptions
+### Impression sécurisée d'une liste (Task 0)
 
 ```python
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("Cannot divide by zero!")
+safe_print_list = __import__('0-safe_print_list').safe_print_list
+
+my_list = [1, 2, 3, 4, 5]
+nb_print = safe_print_list(my_list, 2)
+print("nb_print: {:d}".format(nb_print))
+# Output: 12
+#         nb_print: 2
 ```
 
-### Exceptions multiples
+### Impression sécurisée d'un entier (Task 1)
 
 ```python
-try:
-    value = int(input("Enter a number: "))
-    result = 10 / value
-except ValueError:
-    print("Invalid input! Please enter a number.")
-except ZeroDivisionError:
-    print("Cannot divide by zero!")
+safe_print_integer = __import__('1-safe_print_integer').safe_print_integer
+
+value = 89
+has_been_print = safe_print_integer(value)
+print("has_been_print: {}".format(has_been_print))
+# Output: 89
+#         has_been_print: True
 ```
 
-### Finally et nettoyage
+### Division sécurisée (Task 3)
 
 ```python
+safe_print_division = __import__('3-safe_print_division').safe_print_division
+
+a = 12
+b = 2
+result = safe_print_division(a, b)
+print("Inside result: {}".format(result))
+# Output: 12 / 2 = 6.0
+#         Inside result: 6.0
+```
+
+### Lever une exception (Task 5)
+
+```python
+raise_exception = __import__('5-raise_exception').raise_exception
+
 try:
-    file = open("data.txt", "r")
-    data = file.read()
-except FileNotFoundError:
-    print("File not found!")
-finally:
-    if 'file' in locals():
-        file.close()
+    raise_exception()
+except TypeError as te:
+    print("Exception raised")
+# Output: Exception raised
 ```
 
 ## 🧪 Tests
@@ -145,7 +217,31 @@ python3 0-main.py
 # Test de la fonction safe_print_integer
 python3 1-main.py
 
-# Etc.
+# Test de la fonction safe_print_list_integers
+python3 2-main.py
+
+# Test de la fonction safe_print_division
+python3 3-main.py
+
+# Test de la fonction list_division
+python3 4-main.py
+
+# Test de la fonction raise_exception
+python3 5-main.py
+
+# Test de la fonction raise_exception_msg
+python3 6-main.py
+```
+
+### Exemple de test complet
+
+```bash
+# Exécuter tous les tests
+for i in {0..6}; do
+    echo "=== Test $i ==="
+    python3 ${i}-main.py
+    echo
+done
 ```
 
 ## 🔍 Debugging
@@ -211,6 +307,12 @@ def divide_numbers(a, b):
 ## 👨‍💻 Auteur
 
 **Krapaud** - Étudiant à Holberton School France
+
+## 📅 Historique des modifications
+
+* **Septembre 2025** : Mise à jour complète du README avec détails des tâches
+* **Correction Task 5** : Fix de la fonction `raise_exception()` pour lever une `TypeError`
+* **Structure mise à jour** : Ajout des fichiers de test individuels
 
 ---
 
