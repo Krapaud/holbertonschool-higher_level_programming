@@ -16,7 +16,7 @@ Tests de base:
 
 Test avec prénom seulement:
     >>> say_my_name("Bob")
-    My name is Bob
+    My name is Bob 
 
 Gestion des erreurs - first_name invalide:
     >>> say_my_name(12, "White")
