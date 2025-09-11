@@ -16,7 +16,7 @@ Tests de base:
 
 Test avec prénom seulement:
     >>> say_my_name("Bob")
-    My name is Bob 
+    My name is Bob
 
 Gestion des erreurs - first_name invalide:
     >>> say_my_name(12, "White")
@@ -26,6 +26,17 @@ Gestion des erreurs - first_name invalide:
 
 Gestion des erreurs - last_name invalide:
     >>> say_my_name("John", 123)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+Gestion des erreurs - arguments None:
+    >>> say_my_name(None, "Smith")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("John", None)
     Traceback (most recent call last):
     ...
     TypeError: last_name must be a string
