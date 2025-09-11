@@ -18,6 +18,12 @@ Test avec prénom seulement:
     >>> say_my_name("Bob")
     My name is Bob 
 
+    >>> say_my_name("John")
+    My name is John 
+
+    >>> say_my_name("Walter")
+    My name is Walter 
+
 Gestion des erreurs - first_name invalide:
     >>> say_my_name(12, "White")
     Traceback (most recent call last):
