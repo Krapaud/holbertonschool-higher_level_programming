@@ -24,6 +24,16 @@ Test avec prénom seulement:
     >>> say_my_name("Walter")
     My name is Walter 
 
+Test avec nom de famille seulement:
+    >>> say_my_name("", "Smith")
+    My name is  Smith
+
+    >>> say_my_name("", "White")
+    My name is  White
+
+    >>> say_my_name("", "Johnson")
+    My name is  Johnson
+
 Gestion des erreurs - first_name invalide:
     >>> say_my_name(12, "White")
     Traceback (most recent call last):
