@@ -31,3 +31,46 @@ Gestion des erreurs:
     Traceback (most recent call last):
     ...
     TypeError: size must be an integer
+
+Test avec float positif:
+    >>> print_square(3.14)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Test avec float négatif:
+    >>> print_square(-2.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Test avec None:
+    >>> print_square(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Test avec une liste:
+    >>> print_square([1, 2, 3])
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Test avec un très grand carré:
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+Test sans arguments:
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
