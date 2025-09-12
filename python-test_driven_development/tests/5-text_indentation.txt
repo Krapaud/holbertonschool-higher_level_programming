@@ -29,3 +29,75 @@ Gestion des erreurs:
 
 Test chaîne vide:
     >>> text_indentation("")
+
+Test avec espaces après les caractères spéciaux:
+    >>> text_indentation("Hello.   World?    Yes:")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    Yes:
+    <BLANKLINE>
+
+Test avec caractères spéciaux consécutifs:
+    >>> text_indentation("Hello.?:")
+    Hello.
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test avec None:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test avec une liste:
+    >>> text_indentation(["hello", "world"])
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test avec des espaces au début:
+    >>> text_indentation("   Hello. World")
+       Hello.
+    <BLANKLINE>
+    World
+
+Test avec seulement des caractères spéciaux:
+    >>> text_indentation(".:?")
+    .
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+
+Test avec newlines existantes:
+    >>> text_indentation("Hello.\nWorld? Yes")
+    Hello.
+    <BLANKLINE>
+
+    World?
+    <BLANKLINE>
+    Yes
+
+Test sans arguments:
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Test avec caractères spéciaux à la fin:
+    >>> text_indentation("Hello world.")
+    Hello world.
+    <BLANKLINE>
+
+Test avec plusieurs espaces entre mots:
+    >>> text_indentation("Hello    world.  Test   this?")
+    Hello    world.
+    <BLANKLINE>
+    Test   this?
+    <BLANKLINE>
