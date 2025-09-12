@@ -37,7 +37,3 @@ class TestMaxInteger(unittest.TestCase):
     def test_max_at_end(self):
         """Test quand max est à la fin"""
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-
-
-if __name__ == '__main__':
-    unittest.main()
