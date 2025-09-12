@@ -1,0 +1,31 @@
+============================================
+5-text_indentation.py - Text indentation
+============================================
+
+Doctest pour la fonction text_indentation
+
+Import:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test texte simple:
+    >>> text_indentation("Hello. World? Yes: No")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    Yes:
+    <BLANKLINE>
+    No
+
+Test texte sans caractères spéciaux:
+    >>> text_indentation("Hello World")
+    Hello World
+
+Gestion des erreurs:
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test chaîne vide:
+    >>> text_indentation("")
