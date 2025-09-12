@@ -79,7 +79,7 @@ Test avec newlines existantes:
     >>> text_indentation("Hello.\nWorld? Yes")
     Hello.
     <BLANKLINE>
-
+    <BLANKLINE>
     World?
     <BLANKLINE>
     Yes
