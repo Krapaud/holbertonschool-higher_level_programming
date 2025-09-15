@@ -3,4 +3,6 @@
 
 
 class Square:
+    """Une classe simple qui représente un carré."""
+
     pass
