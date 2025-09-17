@@ -22,11 +22,13 @@ Each exercise comes with a corresponding test file (`0-main.py` to `9-main.py`) 
 ## Usage
 
 Make sure all files are executable:
+
 ```bash
 chmod +x *.py
 ```
 
 Run individual tests:
+
 ```bash
 ./0-main.py
 ./1-main.py
