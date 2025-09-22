@@ -56,3 +56,54 @@ Test cases for BaseGeometry class
 >>> bg.integer_validator("", 5)
 
 >>> bg.integer_validator("valid", 1)
+
+# Test additional invalid types
+>>> try:
+...     bg.integer_validator("dict_val", {"key": "value"})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] dict_val must be an integer
+
+>>> try:
+...     bg.integer_validator("tuple_val", (1, 2))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] tuple_val must be an integer
+
+>>> try:
+...     bg.integer_validator("set_val", {1, 2, 3})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] set_val must be an integer
+
+# Test large numbers
+>>> bg.integer_validator("big_num", 999999)
+
+>>> bg.integer_validator("huge", 10**10)
+
+# Test with negative numbers (additional cases)
+>>> try:
+...     bg.integer_validator("neg_one", -1)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] neg_one must be greater than 0
+
+>>> try:
+...     bg.integer_validator("big_neg", -999999)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] big_neg must be greater than 0
+
+# Test class instantiation and type
+>>> type(bg).__name__
+'BaseGeometry'
+
+>>> isinstance(bg, BaseGeometry)
+True
+
+# Test that methods exist
+>>> hasattr(bg, 'area')
+True
+
+>>> hasattr(bg, 'integer_validator')
+True
