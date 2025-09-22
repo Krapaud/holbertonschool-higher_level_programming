@@ -45,3 +45,14 @@ Test cases for BaseGeometry class
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
+
+# Test edge cases
+>>> try:
+...     bg.integer_validator("none_val", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] none_val must be an integer
+
+>>> bg.integer_validator("", 5)
+
+>>> bg.integer_validator("valid", 1)
