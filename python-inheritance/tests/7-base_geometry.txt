@@ -32,3 +32,47 @@ Test cases for BaseGeometry class
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
+
+# Test None value
+>>> try:
+...     bg.integer_validator("none_val", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] none_val must be an integer
+
+# Test float
+>>> try:
+...     bg.integer_validator("float_val", 3.14)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] float_val must be an integer
+
+# Test boolean (True is now rejected with type() check)
+>>> try:
+...     bg.integer_validator("bool_val", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] bool_val must be an integer
+
+# Test list
+>>> try:
+...     bg.integer_validator("list_val", [1, 2, 3])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] list_val must be an integer
+
+# Test empty name
+>>> bg.integer_validator("", 5)
+
+# Test missing arguments
+>>> try:
+...     bg.integer_validator()
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> try:
+...     bg.integer_validator("test")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
