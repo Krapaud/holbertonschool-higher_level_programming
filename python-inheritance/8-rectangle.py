@@ -1,16 +1,44 @@
 #!/usr/bin/python3
-"""Module for BaseGeometry class"""
+"""
+Module defining BaseGeometry and Rectangle classes.
+
+This module contains a base class for geometric shapes
+and a concrete implementation for rectangles.
+"""
 
 
 class BaseGeometry:
-    """BaseGeometry class with area method and integer validator"""
+    """
+    Base class for geometric shapes.
+
+    This class provides a base interface for all geometric shapes
+    with methods to calculate area and validate integer parameters.
+    """
 
     def area(self):
-        """Raises an Exception with the message area() is not implemented"""
+        """
+        Calculate the area of the geometric shape.
+
+        This method must be implemented by subclasses.
+
+        Raises:
+            Exception: Always, as this method is not implemented
+                      in the base class.
+        """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Validates that value is a positive integer"""
+        """
+        Validate that a value is a positive integer.
+
+        Args:
+            name (str): The name of the parameter to validate.
+            value: The value to validate.
+
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than or equal to 0.
+        """
         if isinstance(value, bool) or not isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
@@ -18,10 +46,31 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """Rectangle class inherited from BaseGeometry"""
+    """
+    Represents a rectangle inheriting from BaseGeometry.
+
+    This class implements a rectangle with width and height,
+    using the integer validation provided by the parent class.
+
+    Attributes:
+        __width (int): The width of the rectangle (private).
+        __height (int): The height of the rectangle (private).
+    """
 
     def __init__(self, width, height):
-        """Initialize Rectangle with width and height"""
+        """
+        Initialize a new rectangle.
+
+        Args:
+            width (int): The width of the rectangle. Must be a positive
+                integer.
+            height (int): The height of the rectangle. Must be a positive
+                integer.
+
+        Raises:
+            TypeError: If width or height is not an integer.
+            ValueError: If width or height is less than or equal to 0.
+        """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
