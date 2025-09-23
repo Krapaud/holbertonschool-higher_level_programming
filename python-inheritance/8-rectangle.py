@@ -11,14 +11,14 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """Valide que value est un entier positif"""
-        if isinstance(value, bool) or not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
 
 
 class Rectangle(BaseGeometry):
-    """Rectange class with herited by BaseGeometry"""
+    """Rectangle class inherited from BaseGeometry"""
 
     def __init__(self, width, height):
         """Initialize Rectangle with width and height"""
