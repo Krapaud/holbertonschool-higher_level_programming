@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Module pour l'exercice Dragon avec Mixins.
 Démontre l'utilisation des mixins pour ajouter des capacités à une classe.
