@@ -19,8 +19,8 @@ class VerboseList(list):
 
     def remove(self, item):
         """Supprimer un élément de la liste avec notification"""
-        super().remove(item)
         print("Removed [{}] from the list.".format(item))
+        super().remove(item)
 
     def pop(self, index=-1):
         """Supprimer et retourner un élément avec notification"""
