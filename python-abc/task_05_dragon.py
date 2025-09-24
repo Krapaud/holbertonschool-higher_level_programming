@@ -39,7 +39,7 @@ class draco(Dragon):
         """Teste toutes les capacités du dragon et affiche le MRO."""
         print("fly():", self.fly())
         print("swim():", self.swim())
-        print("habitat():", self.roar())
+        print("roar():", self.roar())
 
         print(draco.mro())
 
