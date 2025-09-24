@@ -1,34 +1,42 @@
 #!/usr/bin/env python3
 """
-Module pour l'exercice Dragon avec Mixins
+Module pour l'exercice Dragon avec Mixins.
+Démontre l'utilisation des mixins pour ajouter des capacités à une classe.
 """
 
 
 class SwimMixin:
-    """Mixin pour la capacité de nager"""
+    """Mixin qui ajoute la capacité de nager à une classe."""
 
     def swim(self):
-        """Méthode pour nager"""
+        """Fait nager la créature."""
         print("The creature swims!")
 
 
 class FlyMixin:
-    """Mixin pour la capacité de voler"""
+    """Mixin qui ajoute la capacité de voler à une classe."""
 
     def fly(self):
-        """Méthode pour voler"""
+        """Fait voler la créature."""
         print("The creature flies!")
 
 
 class Dragon(SwimMixin, FlyMixin):
-    """Classe Dragon héritant des mixins SwimMixin et FlyMixin"""
+    """Classe Dragon qui hérite des capacités de nage et de vol via les mixins.
+
+    Hérite de SwimMixin et FlyMixin pour obtenir les capacités swim() et fly().
+    """
 
     def roar(self):
-        """Méthode pour rugir"""
+        """Fait rugir le dragon."""
         print("The dragon roars!")
 
+
 class draco(Dragon):
+    """Classe draco héritant de Dragon pour tester les capacités et le MRO."""
+
     def ability(self):
+        """Teste toutes les capacités du dragon et affiche le MRO."""
         print("fly():", self.fly())
         print("swim():", self.swim())
         print("habitat():", self.roar())
@@ -37,5 +45,5 @@ class draco(Dragon):
 
 
 if __name__ == "__main__":
-    flying_fish = draco()
-    flying_fish.ability()
+    new_draco = draco()
+    new_draco.ability()
