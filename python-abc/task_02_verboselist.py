@@ -26,3 +26,4 @@ class VerboseList(list):
         """Supprimer et retourner un élément avec notification"""
         item = super().pop(index)
         print("Popped [{}] from the list.".format(item))
+        return item
