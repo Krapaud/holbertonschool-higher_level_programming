@@ -25,9 +25,7 @@ class Circle(Shape):
 
     def __init__(self, radius):
         """Constructeur de Circle"""
-        if radius < 0:
-            raise ValueError("Radius must be positive")
-        self.__radius = radius
+        self.__radius = abs(radius)
 
     def area(self):
         """Calculer l'aire du cercle"""
@@ -43,8 +41,6 @@ class Rectangle(Shape):
 
     def __init__(self, width, height):
         """Constructeur de Rectangle"""
-        if width < 0 or height < 0:
-            raise ValueError("Width and height must be positive")
         self.__width = width
         self.__height = height
 
