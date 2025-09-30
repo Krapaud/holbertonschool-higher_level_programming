@@ -1,0 +1,35 @@
+Educational Use License
+
+Copyright (c) 2025 Krapaud - Holberton School Student
+
+Permission is hereby granted to any person obtaining a copy of this software 
+and associated documentation files (the "Software"), to use the Software for 
+educational and learning purposes only, subject to the following conditions:
+
+PERMITTED USES:
+- View and study the code for educational purposes
+- Use as reference material for learning programming concepts
+- Fork for personal learning and experimentation
+
+PROHIBITED USES:
+- Direct copying for academic assignments or projects
+- Commercial use or distribution
+- Claiming authorship of the original work
+- Using in any way that violates academic integrity policies
+
+EDUCATIONAL CLAUSE:
+This software contains solutions to educational exercises from Holberton School.
+Students are encouraged to use this code to understand concepts and approaches,
+but must develop their own original solutions for their assignments to maintain
+academic integrity.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+This project is part of the Holberton School curriculum for educational purposes.
