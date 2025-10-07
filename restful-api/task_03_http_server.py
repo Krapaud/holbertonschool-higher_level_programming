@@ -79,13 +79,13 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            status = {"status": "OK"}
+            status = {"OK"}
             self.wfile.write(json.dumps(status).encode())
         else:
             self.send_response(404)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            error = {"error": "Endpoint not found"}
+            error = {"404 Not Found"}
             self.wfile.write(json.dumps(error).encode())
 
 def run(server_class=http.server.HTTPServer, handler_class=SimpleHTTPRequestHandler):
