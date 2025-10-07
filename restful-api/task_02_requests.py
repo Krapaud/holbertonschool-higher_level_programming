@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
 Task 2: Consuming and processing data from an API using Python
-This module contains functions to fetch and process data from JSONPlaceholder API.
+This module contains functions to fetch and process data from
+JSONPlaceholder API.
 """
 
-import requests
 import csv
+
+import requests
 
 
 def fetch_and_print_posts():
@@ -29,13 +31,13 @@ def fetch_and_save_posts():
     """
     response = requests.get("https://jsonplaceholder.typicode.com/posts")
 
-    with open('json.csv', newline='') as csvfile:
-        response = requests.get("https://jsonplaceholder.typicode.com/posts")
     if response.status_code == 200:
         posts = response.json()
 
-        with open("json.csv", "w", newline="") as csvfile:
-            writer = csv.DickWriter(csvfile, fieldnames=["id", "title", "body"])
+        with open("posts.csv", "w", newline="") as csvfile:
+            writer = csv.DictWriter(
+                csvfile, fieldnames=[
+                    "id", "title", "body"])
             writer.writeheader()
             for post in posts:
                 writer.writerow({
