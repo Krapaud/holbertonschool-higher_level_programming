@@ -1,0 +1,12 @@
+# Requirements file for the RESTful API project
+
+# Task 2: Python requests library
+requests>=2.25.1
+
+# Task 4: Flask framework
+Flask>=2.0.1
+
+# Task 5: Authentication libraries
+Flask-HTTPAuth>=4.4.1
+Flask-JWT-Extended>=4.2.3
+Werkzeug>=2.0.1
