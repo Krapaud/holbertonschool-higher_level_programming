@@ -36,7 +36,7 @@ def get_data():
         JSON: List of usernames
     """
     # Return list of all usernames from users dictionary
-    return jsonify(list(users.keys()))
+    return jsonify(list(users.keys())), 200
 
 
 @app.route('/status')
