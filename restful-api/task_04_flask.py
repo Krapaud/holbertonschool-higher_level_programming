@@ -12,8 +12,7 @@ app = Flask(__name__)
 # Structure: {username: {user_data}}
 # Example: {"jane": {"username": "jane", "name": "Jane", "age": 28,
 #           "city": "Los Angeles"}}
-users = {"jane": {"username": "jane", "name": "Jane", "age": 28,
-                  "city": "Los Angeles"}}
+users = {}
 
 
 @app.route('/')
@@ -67,7 +66,7 @@ def get_user(username):
     if user:
         return jsonify(user)
     else:
-        return jsonify({'error': 'user not found'}), 404
+        return jsonify({'error': 'User not found'}), 404
 
 
 @app.route('/add_user', methods=['POST'])
@@ -87,16 +86,25 @@ def add_user():
         JSON: Confirmation message with user data or error
     """
     data = request.get_json()
+
+    # Check if username is provided
+    if not data or not data.get("username"):
+        return jsonify({"error": "Username is required"}), 400
+
     username = data.get("username")
-    if not username or username in users:
-        return jsonify({"error": "Invalid or duplicate username"}), 400
+
+    # Check if username already exists
+    if username in users:
+        return jsonify({"error": "Username already exists"}), 400
+
+    # Add the new user
     users[username] = {
         "username": username,
         "name": data.get("name"),
         "age": data.get("age"),
         "city": data.get("city")
     }
-    return jsonify({"message": "User created", "user": users[username]}), 201
+    return jsonify({"message": "User added", "user": users[username]}), 201
 
 
 if __name__ == "__main__": app.run()
