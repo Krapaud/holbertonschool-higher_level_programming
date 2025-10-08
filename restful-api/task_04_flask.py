@@ -12,7 +12,7 @@ app = Flask(__name__)
 # Structure: {username: {user_data}}
 # Example: {"jane": {"username": "jane", "name": "Jane", "age": 28,
 #           "city": "Los Angeles"}}
-users = {}
+users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}, "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}}
 
 
 @app.route('/')
