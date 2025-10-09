@@ -12,7 +12,7 @@ app = Flask(__name__)
 # Structure: {username: {user_data}}
 # Example: {"jane": {"username": "jane", "name": "Jane", "age": 28,
 #           "city": "Los Angeles"}}
-users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}, "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}}
+users = {}
 
 
 @app.route('/')
@@ -64,7 +64,7 @@ def get_user(username):
     """
     user = users.get(username)
     if user:
-        return jsonify(user)
+        return jsonify(user), 200
     else:
         return jsonify({'error': 'User not found'}), 404
 
