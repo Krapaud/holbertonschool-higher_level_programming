@@ -93,10 +93,6 @@ def add_user():
 
     username = data.get("username")
 
-    # Check if username already exists
-    if username in users:
-        return jsonify({"error": "Username already exists"}), 400
-
     # Add the new user
     users[username] = {
         "username": username,
