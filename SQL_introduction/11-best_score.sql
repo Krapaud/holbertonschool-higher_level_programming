@@ -1,5 +1,5 @@
--- List records with score >= 10
--- Display score and name, ordered by score (descending)
+-- Lists records with a score greater than or equal to 10
+-- Displays score and name, sorted by score in descending order
 SELECT score, name
 FROM second_table
 WHERE score >= 10

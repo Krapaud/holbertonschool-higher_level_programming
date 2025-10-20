@@ -1,7 +1,7 @@
--- List number of records with same score
--- Display score and count (as 'number')
--- Sort by count (descending)
--- Use GROUP BY and COUNT
+-- Lists the number of records with the same score
+-- Displays score and number of occurrences (column named "number")
+-- Sorted by number of occurrences in descending order (most frequent to least frequent)
+-- GROUP BY groups rows with the same score value
 SELECT score, COUNT(*) AS number
 FROM second_table
 GROUP BY score

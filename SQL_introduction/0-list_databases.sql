@@ -1,3 +1,3 @@
--- List all databases
--- Write your SQL command here to show all databases
+-- Lists all databases available on the MySQL server
+-- This command displays all accessible database schemas
 SHOW DATABASES;
