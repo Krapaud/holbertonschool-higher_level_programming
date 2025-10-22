@@ -27,7 +27,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute SQL query using format() with user input
-    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id".format(state_name))
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id"
+    cursor.execute(query.format(state_name))
     # Fetch all results
     results = cursor.fetchall()
 
@@ -38,3 +39,4 @@ if __name__ == "__main__":
     # Close cursor and connection
     cursor.close()
     db.close()
+
