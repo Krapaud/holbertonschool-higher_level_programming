@@ -12,7 +12,8 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    # Connect to MySQL server
+
+    # Connect to MySQL server on localhost at port 3306
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -20,15 +21,20 @@ if __name__ == "__main__":
         passwd=password,
         db=database
     )
+
     # Create a cursor object
     cursor = db.cursor()
+
     # Execute SQL query to select states starting with 'N' sorted by id
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC")
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+
     # Fetch all results
     results = cursor.fetchall()
+
     # Display results
     for row in results:
         print(row)
+
     # Close cursor and connection
     cursor.close()
     db.close()
