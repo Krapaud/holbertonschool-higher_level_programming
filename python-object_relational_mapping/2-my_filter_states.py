@@ -27,7 +27,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute SQL query using format() with user input
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id"
+    query = "SELECT * FROM states WHERE name = BINARY '{}' ORDER BY id ASC"
     cursor.execute(query.format(state_name))
     # Fetch all results
     results = cursor.fetchall()
