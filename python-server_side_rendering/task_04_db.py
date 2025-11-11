@@ -31,12 +31,12 @@ def read_sql():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Products")
     data = cursor.fetchall()
-    dict_data = []
+    poduct_data = []
     for d in data:
         product_dict = {'id': d[0], 'name': d[1], 'category': d[2], 'price': d[3]}
-        dict_data.append(product_dict)
+        product_data.append(product_dict)
     conn.close()
-    return dict_data
+    return product_data
 
 
 @app.route('/products')
